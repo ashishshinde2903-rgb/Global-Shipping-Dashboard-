@@ -51,12 +51,44 @@ The data model follows a star schema with fact tables (Shipments, Sales) and dim
 
 9.How to Run this Project 🗂️
 
-1. Clone or download this repository
-2. Set up the MySQL database and run the SQL scripts from the `sql/` folder to create tables and generate data
-3. Open the Power BI file (`pbix/shipping_dashboard.pbix`)
-4. Update the data source connection (if required)
-5. Click on **Refresh** to load the data
-6. Explore the dashboard using slicers and filters
+### ETL Process Method 1
+
+1. **Extract (Data Setup in MySQL)**
+   - Download the SQL scripts from the `sql/` folder
+   - Open MySQL Workbench
+   - Create a new database (e.g., `Shipping`)
+   - Run the SQL files in order:
+     - Schema creation
+     - Dimension tables
+     - Fact tables
+     - Data generation
+
+2. **Transform (Data Preparation in Power BI)**
+   - Open Power BI Desktop
+   - Click on **Get Data → MySQL Database**
+   - Enter:
+     - Server: `localhost`
+     - Database: `Shipping`
+   - Select required tables (Fact and Dimension tables)
+   - Click **Transform Data**
+   - Perform basic cleaning (if needed):
+     - Check data types
+
+3. **Load (Modeling & Visualization)**
+   - Click **Close & Apply**
+   - Create relationships in Model View (Star Schema)
+   - Build DAX measures (Revenue, Profit, Delay, Efficiency)
+   - Design dashboards and visuals
+
+4. **Refresh**
+   - Click **Refresh** to update data whenever needed
+
+### Method 2 Quick Start (Direct Run)
+
+1. Download the Power BI file (`Global Shipping.pbix`)
+2. Open it in Power BI Desktop
+3. If prompted, update or ignore data source credentials
+4. Explore the dashboard directly using filters and slicers
 
 10.Results & Conclusion 🎯
 The project successfully demonstrates how data visualization and modeling can be used to analyze shipping operations. It highlights key performance drivers, identifies inefficiencies, and provides actionable insights to improve delivery performance and profitability.
